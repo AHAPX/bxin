@@ -31,7 +31,6 @@ class BxIn():
         return date and date.strftime('%Y-%m-%d')
 
     def public(self, url, **kwargs):
-        print(kwargs)
         resp = requests.get(self.get_url(url, **kwargs))
         return json.loads(resp.content)
 
@@ -116,10 +115,3 @@ class BxIn():
 
     def withdrawal_history(self):
         return self.private('withdrawal-history')
-
-
-if __name__ == '__main__':
-    from local import *
-
-    bx = BxIn(API_KEY, API_SECRET, OTP)
-    print(bx.withdrawal_history())
