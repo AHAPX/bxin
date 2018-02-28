@@ -7,6 +7,8 @@ from urllib.parse import urljoin
 import requests
 import pyotp
 
+import pairs
+
 
 class BxIn():
     def __init__(self, api_key, api_secret, otp=None, url=None):
@@ -30,6 +32,11 @@ class BxIn():
     def get_date(self, date):
         return date and date.strftime('%Y-%m-%d')
 
+    def get_pair(self, pair):
+        if isinstance(pair, str):
+            return getattr(pairs, pair, None)
+        return pair
+
     def public(self, url, **kwargs):
         resp = requests.get(self.get_url(url, **kwargs))
         return json.loads(resp.content)
@@ -50,15 +57,15 @@ class BxIn():
     def pairing(self):
         return self.public('pairing')
 
-    def orderbook(self, pair=None):
-        return self.public('orderbook', **self.get_params(pairing=pair))
+    def orderbook(self, pairing=None):
+        return self.public('orderbook', **self.get_params(pairing=pairing))
 
-    def trade(self, pair=None):
-        return self.public('trade', **self.get_params(pairing=pair))
+    def trade(self, pairing=None):
+        return self.public('trade', **self.get_params(pairing=pairing))
 
-    def tradehistory(self, date, pair=None):
+    def tradehistory(self, date, pairing=None):
         return self.public('tradehistory', **self.get_params(
-            pairing=pair, date=self.get_date(date)))
+            pairing=pairing, date=self.get_date(date)))
 
     def order(self, pairing, amount, rate, buy=True):
         data = {
