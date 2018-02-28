@@ -4,7 +4,6 @@ from distutils.core import setup
 setup(
   name = 'bxinth',
   packages = ['bxinth'],
-  package_dir={'bxinth': 'src/'},
   version = '0.1',
   description = 'Python lib for bx.in.th market',
   author = 'AHAPX',

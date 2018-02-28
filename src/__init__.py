@@ -1,1 +1,1 @@
-from bxinth import BxIn
+from .bxinth import BxIn

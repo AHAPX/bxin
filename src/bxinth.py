@@ -7,8 +7,6 @@ from urllib.parse import urljoin
 import requests
 import pyotp
 
-import pairs
-
 
 class BxIn():
     def __init__(self, api_key, api_secret, otp=None, url=None):
@@ -31,11 +29,6 @@ class BxIn():
 
     def get_date(self, date):
         return date and date.strftime('%Y-%m-%d')
-
-    def get_pair(self, pair):
-        if isinstance(pair, str):
-            return getattr(pairs, pair, None)
-        return pair
 
     def public(self, url, **kwargs):
         resp = requests.get(self.get_url(url, **kwargs))
