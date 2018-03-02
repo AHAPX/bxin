@@ -35,7 +35,7 @@ class BxIn():
         return json.loads(resp.content)
 
     def private(self, url, data={}):
-        nonce = round(time.time())
+        nonce = round(time.time() * 1000)
         m = sha256()
         m.update(f'{self.api_key}{nonce}{self.api_secret}'.encode())
         signature = m.hexdigest()
