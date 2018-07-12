@@ -18,7 +18,7 @@ setup(
   author='AHAPX',
   author_email='anarchy.b@gmail.com',
   url='https://github.com/AHAPX/bxin',
-  download_url='https://github.com/AHAPX/bxin/archive/0.1.1.tar.gz',
+  download_url='https://github.com/AHAPX/bxin/archive/v0.1.1.tar.gz',
   install_requires=[
     'pyotp==2.2.6',
     'requests==2.18.4'
