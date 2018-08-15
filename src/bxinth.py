@@ -93,7 +93,7 @@ class BxIn():
             'start_date': self.get_date(start_date),
             'end_date': self.get_date(end_date),
         }
-        return self.private('getorders', data)
+        return self.private('history', data)
 
     def deposit(self, currency, new=False):
         data = {

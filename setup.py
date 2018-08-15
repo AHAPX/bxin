@@ -11,7 +11,7 @@ setup(
   name='bxinth',
   packages=['bxinth'],
   package_dir={'bxinth': 'src/'},
-  version='0.1.1',
+  version='0.1.2',
   description='Python lib for bx.in.th market',
   long_description=long_description,
   license='MIT',
