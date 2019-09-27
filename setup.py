@@ -21,7 +21,7 @@ setup(
   download_url='https://github.com/AHAPX/bxin/archive/v0.1.1.tar.gz',
   install_requires=[
     'pyotp==2.2.6',
-    'requests==2.18.4'
+    'requests==2.20.0'
   ],
   keywords=['crypto', 'bx', 'bitcoin'],
   classifiers=[],
